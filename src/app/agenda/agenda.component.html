@@ -1,0 +1,16 @@
+<div class="container ">
+    <mat-tab-group color="primary" (selectedTabChange)="changeTab($event)">
+        <mat-tab label="Dra Ana Carolina Pasqualin">
+            <div *ngIf="tab === 0">
+                <div *ngIf="load === false">
+                <ng-fullcalendar #fullcalendar [options]="optionsTeste" (eventDragStop)="eventDragStop($event)"
+                    (eventClick)="eventClick($event)" (clickButton)="clickButtonTest($event.buttonType)"
+                    [(eventsModel)]="optionsTeste.events"></ng-fullcalendar>
+                </div>
+            </div>
+        </mat-tab>
+        <mat-tab label="Dra Juliana Cotrim">
+            <app-drajuliana *ngIf="tab === 1"></app-drajuliana>
+        </mat-tab>
+    </mat-tab-group>
+</div>

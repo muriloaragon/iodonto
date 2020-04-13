@@ -1,0 +1,75 @@
+.example-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  .person{
+    border-bottom: solid 1px rgba(0,0,0,.12);
+  }
+  .top{
+    background: #673ab7;
+    display: flex;
+    flex-wrap: wrap;
+    -webkit-box-align: center;
+    align-items: center;
+    padding: 8px 16px;
+  }
+  .example-events {
+    width: 300px;
+    height: 200px;
+    overflow: auto;
+    border: 1px solid #555;
+  }
+.menu{
+  width: 180px;
+  font-family: "Myriad Pro", Myriad, "Liberation Sans", "Nimbus Sans L", "Helvetica Neue", Helvetica, Arial, sans-serif;
+ 
+}
+.imgPerson{
+    width: 50px;
+    margin: auto;
+    padding: 16px 0 0 0;
+}
+.name{
+    font-size: 13px;
+    font-weight: 700;
+    text-align: center;
+    // /* border: 1px ridge; */
+    // border-bottom-style: inset;
+    /* width: 60px; */
+    height: 42px;
+    padding: 10px 0px 3px 0px;
+}
+.cro{
+    font-size: 11px;
+    font-weight: 200;
+    margin: 0;
+}
+.drName{
+    margin: 0;
+    padding: 0;;
+}
+.button{
+    width: 100%;
+    font-size: 12px;
+    font-weight: 700;
+    width: 100%;
+    text-align: inherit;
+}
+.logo{
+  margin: auto;
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  font-weight: 600;
+  font-size: 20px;
+  padding: 0 0 0 0;
+}
+.sair {
+  font-family: Arial, Helvetica, sans-serif;
+  color: white;
+  font-weight: 600;
+  font-size: 14px;
+  padding: 0 0 0 0; 
+}

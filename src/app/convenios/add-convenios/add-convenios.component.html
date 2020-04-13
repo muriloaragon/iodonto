@@ -1,0 +1,25 @@
+<h1 mat-dialog-title>Adicionar convênios</h1>
+<div mat-dialog-content>
+    <form [formGroup]="convenioForm">
+        <mat-form-field style="width: 100%;">
+            <mat-label>Nome do convênio</mat-label>
+            <input matInput [(ngModel)]="data.nome" formControlName="nome">
+        </mat-form-field>
+        <mat-form-field style="width: 100%;">
+            <mat-label>telefone</mat-label>
+            <input matInput [(ngModel)]="data.telefone" formControlName="telefone">
+        </mat-form-field>
+        <mat-form-field style="width: 100%;">
+            <mat-label>E-mail</mat-label>
+            <input matInput [(ngModel)]="data.email" formControlName="email">
+        </mat-form-field>
+        <mat-form-field style="width: 100%;">
+            <mat-label>Site</mat-label>
+            <input matInput [(ngModel)]="data.site" formControlName="site">
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-actions>
+    <button mat-button (click)="onNoClick()">Cancelar</button>
+    <button mat-button [disabled]="!convenioForm.valid" [mat-dialog-close]="data" cdkFocusInitial>Salvar</button>
+</div>

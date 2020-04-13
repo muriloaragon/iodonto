@@ -1,0 +1,21 @@
+<div mat-dialog-content>
+  <h1>Cadastro de paciente</h1>
+<app-autocomplete (messageToEmit)="getMessage($event)" (add)="getAdd($event)"></app-autocomplete>
+  <mat-form-field style="width: 100%;">
+    <mat-label>Data consulta:</mat-label>
+    <input matInput [matDatepicker]="picker" [(ngModel)]="data.date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field style="display: block !important;">
+    <mat-label>Início:</mat-label>
+    <input class="col-md-5 end" matInput name="end" type="time" [(ngModel)]="data.start">
+  </mat-form-field>
+  <mat-form-field style="display: block !important;">
+    <mat-label>Fim:</mat-label>
+    <input class="col-md-5 end" matInput name="end" type="time" [(ngModel)]="data.end">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions>
+  <button color="primary" style="width: 100%;" mat-button [mat-dialog-close]="data" cdkFocusInitial>Adicionar</button>
+</div>

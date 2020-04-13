@@ -1,0 +1,28 @@
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+  width: 9px !important;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+  width: 9px;
+}
+
+.example-headers-align .mat-form-field + .mat-form-field {
+  margin-left: 8px;
+}
+.buttonAdd{
+    position: absolute;
+    /* z-index: auto; */
+    /* width: 18%; */
+    display: block;
+    top: 84%;
+    right: 0;
+    margin: 0 12px 0 0;
+}
+.labelGrid{
+  width: 34%;
+  float: left;
+}

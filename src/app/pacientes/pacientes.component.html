@@ -1,0 +1,44 @@
+<div style="margin: auto; width: 50%;">
+    <app-autocomplete (add)="getAdd($event)"></app-autocomplete>
+</div>
+<div class="form">
+    <form [formGroup]="pacienteForm">
+    <mat-form-field style="display: block !important;">
+        <mat-label>Nome</mat-label>
+        <input class="col-md-5 end" matInput name="end" type="text" formControlName="nome">
+    </mat-form-field>
+
+    <mat-form-field style="display: block !important;">
+        <mat-label>E-mail</mat-label>
+        <input class="col-md-5 end" matInput name="end" type="text" formControlName="email">
+    </mat-form-field>
+
+    <mat-form-field style="display: block !important;">
+        <mat-label>Celular</mat-label>
+        <input class="col-md-5 end" matInput name="end" type="text" formControlName="celular">
+    </mat-form-field>
+
+    <mat-form-field style="display: block !important;">
+        <mat-label>Telefone</mat-label>
+        <input class="col-md-5 end" matInput name="end" type="text" formControlName="telefone">
+    </mat-form-field>
+
+    <mat-form-field style="display: block !important;">
+        <mat-label>Convênio</mat-label>
+        <input class="col-md-5 end" matInput name="end" type="text" formControlName="convenio">
+    </mat-form-field>
+
+    <mat-form-field style="display: block !important;">
+        <mat-label>Numero da convênio</mat-label>
+        <input class="col-md-5 end" matInput name="end" type="text" formControlName="numeroConvenio">
+    </mat-form-field>
+
+    <mat-form-field style="width: 100%;">
+        <mat-label>Data da primeiro consulta:</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="dataPrimeiraConsulta">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    <button [disabled]="!pacienteForm.valid" mat-raised-button color="primary" style="width: 100%;" (click)="submitForm()">Cadastrar</button>
+    </form>
+</div>

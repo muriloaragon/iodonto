@@ -1,0 +1,12 @@
+<form class="example-form">
+  <mat-form-field class="example-full-width" style="width: 88% !important;">
+    <mat-label>Nome paciente </mat-label>
+    <input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+    <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+      <mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+        {{option.nome}}
+      </mat-option>
+    </mat-autocomplete>
+  </mat-form-field>
+  <button mat-mini-fab color="primary" (click)="addEvent()">+</button>
+</form>

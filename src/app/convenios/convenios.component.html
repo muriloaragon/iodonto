@@ -1,0 +1,23 @@
+<div class="buttonAdd"><button mat-mini-fab color="primary" (click)="addEvent()">+</button></div>
+<mat-accordion>
+    <mat-expansion-panel *ngFor="let c of getConvenios">
+        <mat-expansion-panel-header>
+            <mat-panel-title style="width: 40px;">
+                {{c.nome}}
+            </mat-panel-title>
+            <mat-panel-description>
+                {{c.telefone}}
+            </mat-panel-description>
+        </mat-expansion-panel-header>
+        <div style="height: 90px;">
+            <div class="labelGrid">
+                <p><b>E-mail:</b></p>
+                <p>{{c.email}}</p>
+            </div>
+            <div class="labelGrid">
+                <p><b>Site:</b></p>
+                <p>{{c.site}}</p>
+            </div>
+        </div>
+    </mat-expansion-panel>
+</mat-accordion>

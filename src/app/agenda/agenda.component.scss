@@ -1,0 +1,19 @@
+div.container {
+    height: 100%;
+}
+div.op1 {
+    width: 15%;
+    display: inline-block;
+    text-align: center;
+    min-width: 15vw;
+    margin: 0px 3px 0px 0px;
+    padding: 19px;
+}
+
+div.op2 {
+    width: 98%;
+    display: inline-block;
+    margin-right: 0vw;
+    padding: 19px 0px 0px 10px;     
+    position: absolute;
+}
