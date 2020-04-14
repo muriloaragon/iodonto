@@ -1,6 +1,6 @@
-
 <div *ngIf="load === false">
-<ng-fullcalendar #fullcalendar2 [options]="optionsTeste" (eventDragStop)="eventDragStop($event)"
-(eventClick)="eventClick($event)" (clickButton)="clickButtonTest($event.buttonType)"
-[(eventsModel)]="optionsTeste.events"></ng-fullcalendar>
+    <ng-fullcalendar #fullcalendar2 [options]="optionsTeste" (eventClickInfo)="eventClickInfo($event)"
+        (eventDragStop)="eventDragStop($event)" (eventClick)="eventClick($event)"
+        (clickButton)="clickButtonTest($event.buttonType)" [(eventsModel)]="optionsTeste.events"></ng-fullcalendar>
+
 </div>

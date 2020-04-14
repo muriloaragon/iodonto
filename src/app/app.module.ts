@@ -51,7 +51,6 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import { AgendaComponent } from './agenda/agenda.component';
 import { PacientesComponent } from './pacientes/pacientes.component';
-import { AnamnseComponent } from './anamnse/anamnse.component';
 import { ConveniosComponent } from './convenios/convenios.component';
 import { FullCalendarModule } from 'ng-fullcalendar';
 import { EventosComponent } from './agenda/eventos/eventos.component';
@@ -72,7 +71,6 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     LoginComponent,
     AgendaComponent,
     PacientesComponent,
-    AnamnseComponent,
     ConveniosComponent,
     EventosComponent,
     DrajulianaComponent,
