@@ -108,7 +108,9 @@ export class AgendaComponent implements OnInit {
     console.log(event);
     if (event == 'clickButtonTest')
       this.openDialog("novo", "", "");
-    if (event == 'clickButtonSalvar') { }
+    if (event == 'clickButtonSalvar') {
+      this.openDialog("novo", "", "");
+     }
   }
 
   openDialog(alt, id, idPaciente): void {

@@ -23,4 +23,7 @@ export class AgendaService {
   updateAgenda(paciente, id) {
     return this.firestore.doc('Agenda/' + id).update(paciente);
   }
+  updateAgendaJuliana(paciente, id) {
+    return this.firestore.doc('AgendaJuliana/' + id).update(paciente);
+  }
 }

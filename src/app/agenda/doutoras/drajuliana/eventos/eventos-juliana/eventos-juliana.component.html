@@ -1,0 +1,34 @@
+<div mat-dialog-content>
+    <h1 *ngIf="!data.name">Cadastro de paciente</h1>
+    <h1 *ngIf="data.name">Alterar de paciente</h1>
+    <div *ngIf="!data.name">
+      <app-autocomplete (messageToEmit)="getMessage($event)" (add)="getAdd($event)"></app-autocomplete>
+    </div>
+    <div *ngIf="data.name">
+      <mat-form-field style="display: block !important;">
+        <mat-label>Nome paciente:</mat-label>
+        <input class="col-md-5 end" matInput type="text" [disabled]="true" [(ngModel)]="data.name">
+    </mat-form-field>
+    </div>
+  </div>
+  <mat-form-field style="width: 100%;">
+    <mat-label>Data consulta:</mat-label>
+    <input matInput [matDatepicker]="picker" [(ngModel)]="data.date">
+    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+    <mat-datepicker #picker></mat-datepicker>
+  </mat-form-field>
+  <mat-form-field style="display: block !important;">
+    <mat-label>Início:</mat-label>
+    <input class="col-md-5 end" matInput name="end" type="time" [(ngModel)]="data.start">
+  </mat-form-field>
+  <mat-form-field style="display: block !important;">
+    <mat-label>Fim:</mat-label>
+    <input class="col-md-5 end" matInput name="end" type="time" [(ngModel)]="data.end">
+  </mat-form-field>
+  <div mat-dialog-actions *ngIf="data.name">
+    <button color="primary" style="width: 100%;" mat-button [mat-dialog-close]="data" cdkFocusInitial>Alterar</button>
+  </div>
+  
+  <div mat-dialog-actions *ngIf="!data.name">
+    <button color="primary" style="width: 100%;" mat-button [mat-dialog-close]="data" cdkFocusInitial>Adicionar</button>
+  </div>

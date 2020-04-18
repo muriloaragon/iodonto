@@ -7,8 +7,8 @@ import allLocales from '@fullcalendar/core/locales-all';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import { MatDialog } from '@angular/material/dialog';
 import { DatePipe } from '@angular/common';
-import { EventosComponent } from '../../eventos/eventos.component';
 import { AgendaService } from '../../service/agenda.service';
+import { EventosJulianaComponent } from './eventos/eventos-juliana/eventos-juliana.component';
 export interface DialogData {
   title: string;
   start: any;
@@ -38,14 +38,14 @@ export class DrajulianaComponent implements OnInit {
   eventA: any = [];
   load: any = true;
 
-  @ViewChild('fullcalendar') fullcalendar: CalendarComponent;
+  @ViewChild('fullcalendar2') fullcalendar: CalendarComponent;
   constructor(public dialog: MatDialog, private agendaService: AgendaService) { }
   ngOnInit() {
     this.serviceAgenda();
   }
   serviceAgenda() {
     this.load = true;
-    this.agendaService.getAgenda()
+    this.agendaService.getAgendaJuliana()
       .subscribe((data: any) => {
         this.eventA = data.map(e => {
           return {
@@ -106,14 +106,16 @@ export class DrajulianaComponent implements OnInit {
   }
   clickButtonTest(event: any) {
     console.log(event);
-    if (event == 'clickButtonTest')
+    if (event == 'clickButtonTest'){
+      this.title = "";
       this.openDialog("novo", "", "");
+    }
     if (event == 'clickButtonSalvar') { }
   }
 
   openDialog(alt, id, idPaciente): void {
     this.dataAlt = alt;
-    const dialogRef = this.dialog.open(EventosComponent, {
+    const dialogRef = this.dialog.open(EventosJulianaComponent, {
       width: '400px',
       data: {
         status: alt,
@@ -136,14 +138,14 @@ export class DrajulianaComponent implements OnInit {
         this.calendarEvents = this.calendarEvents.concat( // creates a new array!
           { title: result.nome, start: dateT + 'T' + result.start + ":00", end: result.end }
         );
-        if (result.status == "novo") {
+        if (result.status == "novo" || result.status == undefined) {
           let objEvent: any = {
             "title": result.nome,
             "start": dateT + 'T' + result.start + ":00",
             "end": result.end,
             "idPaciente": result.idPaciente
           }
-          this.agendaService.addAgenda(objEvent);
+          this.agendaService.addAgendaJuliana(objEvent);
         }
         if (result.status == "Alterar") {
           let objEvent: any = {
@@ -153,7 +155,7 @@ export class DrajulianaComponent implements OnInit {
             "title": result.name            
           }
           console.log(objEvent);
-          this.agendaService.updateAgenda(objEvent, id)
+          this.agendaService.updateAgendaJuliana(objEvent, id)
         }
         
         this.serviceAgenda();
