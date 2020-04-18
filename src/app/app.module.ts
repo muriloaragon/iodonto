@@ -64,6 +64,7 @@ import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { EventosJulianaComponent } from './agenda/doutoras/drajuliana/eventos/eventos-juliana/eventos-juliana.component';
+import { AnotacoesComponent } from './anotacoes/anotacoes.component';
 
 
 @NgModule({
@@ -77,7 +78,8 @@ import { EventosJulianaComponent } from './agenda/doutoras/drajuliana/eventos/ev
     EventosComponent,
     DrajulianaComponent,
     AddConveniosComponent,
-    EventosJulianaComponent
+    EventosJulianaComponent,
+    AnotacoesComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),

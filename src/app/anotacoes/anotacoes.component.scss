@@ -1,0 +1,49 @@
+.card{
+    margin: 18px;
+}
+.discription{
+    height: 117px;
+    overflow: auto;
+    font-size: 14px;
+    padding: 5px 2px 0 5px;
+}
+.annotation{
+    padding: 15px 11px 0 14px;
+    height: 180px;
+    width: 180px;
+    float: left;
+    margin: 6px 11px 5px 2px;
+}
+.data{
+    height: 37px;
+    font-weight: 700;
+    font-style: italic;
+    font-size: 12px;
+}
+.footerCard{
+    width: 100%;
+    height: 31px;
+    text-align: end;
+    padding: 3px 0 0 0;
+}
+.scrollbar {
+    height: 110px;
+    overflow: auto;
+    font-size: 14px;
+    padding: 5px 2px 0 5px;
+}
+#style-1::-webkit-scrollbar {
+    width: 6px;
+    background-color: #F5F5F5;
+}
+
+#style-1::-webkit-scrollbar-thumb {
+    background-color: #673ab7;
+}
+#style-1::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+    background-color: #F5F5F5;
+}
+.force-overflow {
+    min-height: auto;
+}

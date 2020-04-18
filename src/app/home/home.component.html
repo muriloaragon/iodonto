@@ -13,6 +13,10 @@
                     width="18px" style="padding: 0px 14px 0 0;">Agenda</button></p>
         <p><button mat-button class="button" (click)="nav('pacientes')"><img src="./assets/person_add-24px.svg"
                     width="18px" style="padding: 0px 14px 0 0;">Pacientes</button></p>
+        <p><button mat-button class="button" (click)="nav('anotacoes')"><img src="./assets/attach_money-24px.svg"
+                    width="18px" style="padding: 0px 14px 0 0;">Faturamento</button></p>
+        <p><button mat-button class="button" (click)="nav('anotacoes')"><img src="./assets/notifications.svg"
+                    width="18px" style="padding: 0px 14px 0 0;">Lembretes</button></p>
         <p><button mat-button class="button" (click)="nav('convenios')"><img src="./assets/contact_phone-24px.svg"
                     width="18px" style="padding: 0px 14px 0 0;">Convênios</button></p>
     </mat-sidenav>
@@ -27,19 +31,20 @@
                     <path d="M0 0h24v24H0V0z" fill="none" />
                     <path
                         d="M3 18h13v-2H3v2zm0-5h10v-2H3v2zm0-7v2h13V6H3zm18 9.59L17.42 12 21 8.41 19.59 7l-5 5 5 5L21 15.59z" />
-                    </svg></mat-icon>
+                </svg></mat-icon>
         </button>
         <span class="logo">iOdonto</span>
         <button mat-icon-button (click)="logout()">
-            <mat-icon><svg style="color: white;" xmlns="http://www.w3.org/2000/svg" width="27"
-                    height="27" viewBox="0 0 18 18">
+            <mat-icon><svg style="color: white;" xmlns="http://www.w3.org/2000/svg" width="27" height="27"
+                    viewBox="0 0 18 18">
                     <path
                         d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z" />
-                    </svg></mat-icon>
+                </svg></mat-icon>
         </button>
     </nav>
 
     <app-agenda (addAgenda)="getAdd($event)" *ngIf="routerNav==='agenda'"></app-agenda>
     <app-convenios *ngIf="routerNav==='convenios'"></app-convenios>
     <app-pacientes *ngIf="routerNav==='pacientes'"></app-pacientes>
+    <app-anotacoes *ngIf="routerNav==='anotacoes'"></app-anotacoes>
 </mat-sidenav-container>
