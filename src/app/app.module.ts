@@ -65,6 +65,8 @@ import { environment } from '../environments/environment';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { EventosJulianaComponent } from './agenda/doutoras/drajuliana/eventos/eventos-juliana/eventos-juliana.component';
 import { AnotacoesComponent } from './anotacoes/anotacoes.component';
+import { AddAnotacoesComponent } from './anotacoes/add-anotacoes/add-anotacoes.component';
+import { NgpSortModule } from "ngp-sort-pipe";
 
 
 @NgModule({
@@ -79,11 +81,13 @@ import { AnotacoesComponent } from './anotacoes/anotacoes.component';
     DrajulianaComponent,
     AddConveniosComponent,
     EventosJulianaComponent,
-    AnotacoesComponent
+    AnotacoesComponent,
+    AddAnotacoesComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
+    NgpSortModule,
     FormsModule,
     BrowserModule,
     AppRoutingModule,

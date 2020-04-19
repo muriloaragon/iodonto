@@ -67,6 +67,10 @@ export class AgendaComponent implements OnInit {
     this.optionsTeste = {
       editable: true,
       eventLimit: true,
+      displayEventTime: true,
+      handleWindowResize: true,
+      weekends: false, // Hide weekends
+      themeSystem: "jquery",
       locale: 'pt-br',
       timeZone: 'America/Sao_Paulo',
       droppable: true, // this allows things to be dropped onto the calendar
@@ -110,7 +114,7 @@ export class AgendaComponent implements OnInit {
       this.openDialog("novo", "", "");
     if (event == 'clickButtonSalvar') {
       this.openDialog("novo", "", "");
-     }
+    }
   }
 
   openDialog(alt, id, idPaciente): void {
@@ -152,12 +156,12 @@ export class AgendaComponent implements OnInit {
             "end": result.end,
             "idPaciente": result.idPaciente,
             "start": dateT + 'T' + result.start + ":00",
-            "title": result.name            
+            "title": result.name
           }
           console.log(objEvent);
           this.agendaService.updateAgenda(objEvent, id)
         }
-        
+
         this.serviceAgenda();
       } else {
         this.addAgenda.emit("pacientes");

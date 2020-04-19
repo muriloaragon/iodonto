@@ -17,3 +17,7 @@ div.op2 {
     padding: 19px 0px 0px 10px;     
     position: absolute;
 }
+.fc-button-primary::ng-deep  {
+    height: 50px !important;
+    border: 1px solid !important;
+}
