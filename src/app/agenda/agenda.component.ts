@@ -9,6 +9,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { EventosComponent } from './eventos/eventos.component';
 import { DatePipe } from '@angular/common';
 import { AgendaService } from './service/agenda.service';
+import { LoadingBarService } from '@ngx-loading-bar/core';
 export interface DialogData {
   title: string;
   start: any;
@@ -39,11 +40,12 @@ export class AgendaComponent implements OnInit {
   load: any = true;
 
   @ViewChild('fullcalendar') fullcalendar: CalendarComponent;
-  constructor(public dialog: MatDialog, private agendaService: AgendaService) { }
+  constructor(public dialog: MatDialog, private agendaService: AgendaService, private loadingBar: LoadingBarService) { }
   ngOnInit() {
     this.serviceAgenda();
   }
   serviceAgenda() {
+    this.loadingBar.start();
     this.load = true;
     this.agendaService.getAgenda()
       .subscribe((data: any) => {
@@ -59,6 +61,7 @@ export class AgendaComponent implements OnInit {
         })
         this.calendarEvents = this.eventA;
         this.calender();
+        this.loadingBar.complete();
       })
   }
 
@@ -68,8 +71,9 @@ export class AgendaComponent implements OnInit {
       editable: true,
       eventLimit: true,
       displayEventTime: true,
-      handleWindowResize: true,
-      weekends: false, // Hide weekends
+      // handleWindowResize: true,
+      height: 1024,
+      weekends: true, // Hide weekends
       themeSystem: "jquery",
       locale: 'pt-br',
       timeZone: 'America/Sao_Paulo',
@@ -142,7 +146,7 @@ export class AgendaComponent implements OnInit {
         this.calendarEvents = this.calendarEvents.concat( // creates a new array!
           { title: result.nome, start: dateT + 'T' + result.start + ":00", end: result.end }
         );
-        if (result.status == "novo") {
+        if (result.status == "novo" || result.status == undefined) {
           let objEvent: any = {
             "title": result.nome,
             "start": dateT + 'T' + result.start + ":00",

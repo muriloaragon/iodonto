@@ -48,7 +48,7 @@ export class DrajulianaComponent implements OnInit {
     this.agendaService.getAgendaJuliana()
       .subscribe((data: any) => {
         this.eventA = data.map(e => {
-          return {
+          return {  
             id: e.payload.doc.id,
             isEdit: false,
             title: e.payload.doc.data()['title'],
@@ -67,6 +67,11 @@ export class DrajulianaComponent implements OnInit {
     this.optionsTeste = {
       editable: true,
       eventLimit: true,
+      displayEventTime: true,
+      // handleWindowResize: true,
+      height: 1024,
+      weekends: true, // Hide weekends
+      themeSystem: "jquery",
       locale: 'pt-br',
       timeZone: 'America/Sao_Paulo',
       droppable: true, // this allows things to be dropped onto the calendar

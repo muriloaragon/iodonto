@@ -1,0 +1,13 @@
+<div class="container ">
+    <mat-tab-group color="primary">
+        <mat-tab label="Lembretes">
+            <mat-list *ngFor="let lemb of lembrete | sortBy: 'asc':'date'">
+                <mat-list-item > <div style="width: 100%;">{{lemb.descricao | slice:0:30}}</div>  <div style="margin: auto;" class="data">{{lemb.date.seconds * 1000 | date:'dd/MM/yyyy'}}</div></mat-list-item>
+                <mat-divider></mat-divider>
+            </mat-list>
+        </mat-tab>
+        <mat-tab label="Aniversariantes">
+            <p>Lembretes</p>
+        </mat-tab>
+    </mat-tab-group>
+</div>

@@ -29,10 +29,13 @@
     "@fullcalendar/interaction": "^4.4.0",
     "@fullcalendar/resource-timegrid": "^4.4.0",
     "@fullcalendar/timegrid": "^4.4.0",
+    "@material/linear-progress": "^5.1.0",
+    "@ngx-loading-bar/core": "^4.2.0",
     "firebase": "^7.14.0",
     "fullcalendar": "^3.10.1",
     "ng-fullcalendar": "^2.0.3",
     "ngp-sort-pipe": "0.0.4",
+    "ngx-loading": "^8.0.0",
     "rxjs": "~6.5.4",
     "tslib": "^1.10.0",
     "zone.js": "~0.10.2"

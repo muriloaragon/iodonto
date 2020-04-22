@@ -43,10 +43,10 @@ export class AutocompleteComponent implements OnInit {
             telefone: e.payload.doc.data()['telefone'],
             dataPrimeiraConsulta: e.payload.doc.data()['dataPrimeiraConsulta'],
             numeroConvenio: e.payload.doc.data()['numeroConvenio'],
+            dataNascimento: e.payload.doc.data()['dataNascimento'],
             convenio: e.payload.doc.data()['convenio'],
           };
         })
-        console.log(this.paciente);
         this.options = this.paciente;
         this.filteredOptions = this.myControl.valueChanges
           .pipe(
@@ -55,7 +55,6 @@ export class AutocompleteComponent implements OnInit {
             map(nome => nome ? this._filter(nome) : this.options.slice())
           );
       });
-
   }
 
   displayFn(user: User): string {

@@ -36,7 +36,8 @@ export class PacientesComponent implements OnInit, OnDestroy {
     celular: ['', Validators.required],
     convenio: ['', Validators.required],
     numeroConvenio: ['', Validators.required],
-    dataPrimeiraConsulta: ['', Validators.required]
+    dataPrimeiraConsulta: ['', Validators.required],
+    dataNascimento: ['', Validators.required]
   });
 
   ngOnInit(): void {
@@ -136,7 +137,8 @@ export class PacientesComponent implements OnInit, OnDestroy {
       celular: event.celular,
       convenio: event.convenio,
       numeroConvenio: event.numeroConvenio,
-      dataPrimeiraConsulta: event.dataPrimeiraConsulta
+      dataPrimeiraConsulta: event.dataPrimeiraConsulta,
+      dataNascimento: event.dataNascimento
     })
   }
   public ngOnDestroy() {

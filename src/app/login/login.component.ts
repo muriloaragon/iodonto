@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AngularFireAuth  } from '@angular/fire/auth';
+import { AngularFireAuth } from '@angular/fire/auth';
 import { Observable } from 'rxjs';
 import * as firebase from 'firebase/app';
 import { FormGroup, FormControl, FormBuilder, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { LoadingBarService } from '@ngx-loading-bar/core';
 
 
 @Component({
@@ -16,15 +17,16 @@ export class LoginComponent implements OnInit {
   email: any;
   senha: any;
   user: Observable<firebase.User>;
+  public loading = false;
 
-  constructor(private router: Router, public afAuth: AngularFireAuth, private fb: FormBuilder, private _snackBar: MatSnackBar) { 
+  constructor(private router: Router, public afAuth: AngularFireAuth, private fb: FormBuilder, private _snackBar: MatSnackBar, private loadingBar: LoadingBarService) {
     this.user = afAuth.authState;
- }
+  }
 
- loginForm = this.fb.group({
-  email: ['', Validators.required],
-  senha: ['', Validators.required],
-});
+  loginForm = this.fb.group({
+    email: ['', Validators.required],
+    senha: ['', Validators.required],
+  });
 
   ngOnInit(): void {
   }
@@ -33,21 +35,25 @@ export class LoginComponent implements OnInit {
       duration: 2000,
     });
   }
-  login(){
+  login() {
+    this.loadingBar.start();
     return new Promise((resolve, reject) => {
       this.afAuth.signInWithEmailAndPassword(this.email, this.senha).then((user) => {
-      localStorage['token'] = user.credential;
-                      this.router.navigate(['/home']);
+        localStorage['token'] = user.credential;
+        this.router.navigate(['/home']);
+        this.loadingBar.complete();
       })
-                      .catch((error) => {
-                          this.openSnackBar("Login ou Senha inválida!", "Fechar");
-                          this.router.navigate(['/']);
-                      });
-              })
-                  .catch((error) => {
-                    this.openSnackBar("Login ou Senha inválida!", "Fechar");
-                      this.router.navigate(['/']);
-                  });
+        .catch((error) => {
+          this.openSnackBar("Login ou Senha inválida!", "Fechar");
+          this.router.navigate(['/']);
+          this.loadingBar.complete();
+        });
+    })
+      .catch((error) => {
+        this.openSnackBar("Login ou Senha inválida!", "Fechar");
+        this.router.navigate(['/']);
+        this.loadingBar.complete();
+      });
   }
-  
+
 }

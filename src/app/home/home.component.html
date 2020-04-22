@@ -1,50 +1,72 @@
 <mat-sidenav-container class="example-container">
-    <mat-sidenav #sidenav mode="side" [(opened)]="opened" class="menu">
-        <div class="person">
-            <div class="imgPerson">
-                <img src="./assets/person.png" width="50px">
-            </div>
-            <div class="name">
-                <p class="drName"><i>Dra Ana Carolina Pasqualin</i></p>
-                <P class="cro">CRO 114604</P>
-            </div>
-        </div>
-        <p><button mat-button class="button" (click)="nav('agenda')"><img src="./assets/calendar_today-24px.svg"
-                    width="18px" style="padding: 0px 14px 0 0;">Agenda</button></p>
-        <p><button mat-button class="button" (click)="nav('pacientes')"><img src="./assets/person_add-24px.svg"
-                    width="18px" style="padding: 0px 14px 0 0;">Pacientes</button></p>
-        <p><button mat-button class="button" (click)="nav('anotacoes')"><img src="./assets/attach_money-24px.svg"
-                    width="18px" style="padding: 0px 14px 0 0;">Faturamento</button></p>
-        <p><button mat-button class="button" (click)="nav('anotacoes')"><img src="./assets/notifications.svg"
-                    width="18px" style="padding: 0px 14px 0 0;">Lembretes</button></p>
-        <p><button mat-button class="button" (click)="nav('convenios')"><img src="./assets/contact_phone-24px.svg"
-                    width="18px" style="padding: 0px 14px 0 0;">Convênios</button></p>
-    </mat-sidenav>
-    <nav class="mat-elevation-z6 top">
-        <button mat-icon-button (click)="sidenav.toggle()">
-            <mat-icon *ngIf="!opened"><svg style="color: white;" xmlns="http://www.w3.org/2000/svg" height="24"
-                    viewBox="0 0 24 24" width="24">
-                    <path d="M0 0h24v24H0z" fill="none" />
-                    <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" /></svg></mat-icon>
-            <mat-icon *ngIf="opened"><svg style="color: white;" xmlns="http://www.w3.org/2000/svg" height="24"
-                    viewBox="0 0 24 24" width="24">
-                    <path d="M0 0h24v24H0V0z" fill="none" />
-                    <path
-                        d="M3 18h13v-2H3v2zm0-5h10v-2H3v2zm0-7v2h13V6H3zm18 9.59L17.42 12 21 8.41 19.59 7l-5 5 5 5L21 15.59z" />
-                </svg></mat-icon>
-        </button>
-        <span class="logo">iOdonto</span>
-        <button mat-icon-button (click)="logout()">
-            <mat-icon><svg style="color: white;" xmlns="http://www.w3.org/2000/svg" width="27" height="27"
-                    viewBox="0 0 18 18">
-                    <path
-                        d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z" />
-                </svg></mat-icon>
-        </button>
-    </nav>
+  <mat-sidenav #sidenavNoti position="end"  [mode]="mode.value">
+    <app-notificacoes></app-notificacoes>
+  </mat-sidenav>
+  <!-- <mat-sidenav #sidenavNoti position="end" mode="side" [(opened)]="openedNot" class="anotacoes">
+    <app-notificacoes></app-notificacoes>
+        </mat-sidenav> -->
 
-    <app-agenda (addAgenda)="getAdd($event)" *ngIf="routerNav==='agenda'"></app-agenda>
-    <app-convenios *ngIf="routerNav==='convenios'"></app-convenios>
-    <app-pacientes *ngIf="routerNav==='pacientes'"></app-pacientes>
-    <app-anotacoes *ngIf="routerNav==='anotacoes'"></app-anotacoes>
+  <mat-sidenav #sidenav position="start" mode="over" [(opened)]="opened" class="menu">
+    <div class="person">
+      <div class="imgPerson">
+        <img src="./assets/person.png" width="50px">
+      </div>
+      <div class="name">
+        <p class="drName"><i>Dra Ana Carolina Pasqualin</i></p>
+        <P class="cro">CRO 114604</P>
+      </div>
+    </div>
+    <p><button mat-button class="button" (click)="nav('agenda')"><img src="./assets/calendar_today-24px.svg"
+          width="18px" style="padding: 0px 14px 0 0;">Agenda</button></p>
+    <p><button mat-button class="button" (click)="nav('pacientes')"><img src="./assets/person_add-24px.svg" width="18px"
+          style="padding: 0px 14px 0 0;">Pacientes</button></p>
+    <p><button mat-button class="button" (click)="nav('anotacoes')"><img src="./assets/attach_money-24px.svg"
+          width="18px" style="padding: 0px 14px 0 0;">Faturamento</button></p>
+    <p><button mat-button class="button" (click)="nav('anotacoes')"><img src="./assets/notifications.svg" width="18px"
+          style="padding: 0px 14px 0 0;">Lembretes</button></p>
+    <p><button mat-button class="button" (click)="nav('convenios')"><img src="./assets/contact_phone-24px.svg"
+          width="18px" style="padding: 0px 14px 0 0;">Convênios</button></p>
+  </mat-sidenav>
+
+
+
+  <nav class="mat-elevation-z6 top">
+    <button mat-icon-button (click)="sidenav.toggle()">
+      <mat-icon *ngIf="!opened"><svg style="color: white;" xmlns="http://www.w3.org/2000/svg" height="24"
+          viewBox="0 0 24 24" width="24">
+          <path d="M0 0h24v24H0z" fill="none" />
+          <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z" /></svg></mat-icon>
+      <mat-icon *ngIf="opened"><svg style="color: white;" xmlns="http://www.w3.org/2000/svg" height="24"
+          viewBox="0 0 24 24" width="24">
+          <path d="M0 0h24v24H0V0z" fill="none" />
+          <path d="M3 18h13v-2H3v2zm0-5h10v-2H3v2zm0-7v2h13V6H3zm18 9.59L17.42 12 21 8.41 19.59 7l-5 5 5 5L21 15.59z" />
+        </svg></mat-icon>
+    </button>
+    <span class="logo">iOdonto</span>
+
+
+    <button mat-icon-button (click)="sidenavNoti.toggle()">
+      <mat-icon [matBadge]="countLembrete" matBadgeColor="warn"><svg style="color: white;" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24"
+          width="24">
+          <path
+            d="M12 22c1.1 0 2-.9 2-2h-4c0 1.1.89 2 2 2zm6-6v-5c0-3.07-1.64-5.64-4.5-6.32V4c0-.83-.67-1.5-1.5-1.5s-1.5.67-1.5 1.5v.68C7.63 5.36 6 7.92 6 11v5l-2 2v1h16v-1l-2-2z" />
+        </svg></mat-icon>
+    </button>
+    <button mat-icon-button (click)="logout()">
+      <mat-icon><svg style="color: white;" xmlns="http://www.w3.org/2000/svg" width="27" height="27"
+          viewBox="0 0 18 18">
+          <path
+            d="M14.53 4.53l-1.06-1.06L9 7.94 4.53 3.47 3.47 4.53 7.94 9l-4.47 4.47 1.06 1.06L9 10.06l4.47 4.47 1.06-1.06L10.06 9z" />
+        </svg></mat-icon>
+    </button>
+
+  </nav>
+
+  <app-agenda (addAgenda)="getAdd($event)" *ngIf="routerNav==='agenda'"></app-agenda>
+  <app-convenios *ngIf="routerNav==='convenios'"></app-convenios>
+  <app-pacientes *ngIf="routerNav==='pacientes'"></app-pacientes>
+  <app-anotacoes *ngIf="routerNav==='anotacoes'"></app-anotacoes>
 </mat-sidenav-container>
+<mat-menu #menu="matMenu">
+  <app-notificacoes></app-notificacoes>
+</mat-menu>

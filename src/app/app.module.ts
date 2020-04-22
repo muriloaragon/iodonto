@@ -58,7 +58,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { DrajulianaComponent } from './agenda/doutoras/drajuliana/drajuliana.component';
 import { AddConveniosComponent } from './convenios/add-convenios/add-convenios.component';
 import { AngularFireModule } from '@angular/fire';
-
 import { AngularFireAuth  } from '@angular/fire/auth';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
 import { environment } from '../environments/environment';
@@ -67,6 +66,8 @@ import { EventosJulianaComponent } from './agenda/doutoras/drajuliana/eventos/ev
 import { AnotacoesComponent } from './anotacoes/anotacoes.component';
 import { AddAnotacoesComponent } from './anotacoes/add-anotacoes/add-anotacoes.component';
 import { NgpSortModule } from "ngp-sort-pipe";
+import { NotificacoesComponent } from './home/notificacoes/notificacoes.component';
+import { LoadingBarModule } from '@ngx-loading-bar/core';
 
 
 @NgModule({
@@ -82,11 +83,13 @@ import { NgpSortModule } from "ngp-sort-pipe";
     AddConveniosComponent,
     EventosJulianaComponent,
     AnotacoesComponent,
-    AddAnotacoesComponent
+    AddAnotacoesComponent,
+    NotificacoesComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireDatabaseModule,
+    LoadingBarModule,
     NgpSortModule,
     FormsModule,
     BrowserModule,
