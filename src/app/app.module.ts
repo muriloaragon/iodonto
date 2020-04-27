@@ -68,6 +68,8 @@ import { AddAnotacoesComponent } from './anotacoes/add-anotacoes/add-anotacoes.c
 import { NgpSortModule } from "ngp-sort-pipe";
 import { NotificacoesComponent } from './home/notificacoes/notificacoes.component';
 import { LoadingBarModule } from '@ngx-loading-bar/core';
+import { FaturamentoComponent } from './faturamento/faturamento/faturamento.component';
+import { ServiceComponent } from './faturamento/service/service.component';
 
 
 @NgModule({
@@ -84,7 +86,9 @@ import { LoadingBarModule } from '@ngx-loading-bar/core';
     EventosJulianaComponent,
     AnotacoesComponent,
     AddAnotacoesComponent,
-    NotificacoesComponent
+    NotificacoesComponent,
+    FaturamentoComponent,
+    ServiceComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebaseConfig),

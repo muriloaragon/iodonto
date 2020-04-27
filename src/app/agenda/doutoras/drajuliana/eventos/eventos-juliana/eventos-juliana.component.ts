@@ -28,5 +28,8 @@ export class EventosJulianaComponent implements OnInit {
   }
   ngOnInit(): void {
   }
+  excluir(event: any){
+    this.data.status = "excluir";
+  }
   
 }

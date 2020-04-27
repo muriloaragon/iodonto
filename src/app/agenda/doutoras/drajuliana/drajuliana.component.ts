@@ -152,7 +152,7 @@ export class DrajulianaComponent implements OnInit {
           }
           this.agendaService.addAgendaJuliana(objEvent);
         }
-        if (result.status == "Alterar") {
+        else if (result.status == "Alterar") {
           let objEvent: any = {
             "end": result.end,
             "idPaciente": result.idPaciente,
@@ -162,11 +162,13 @@ export class DrajulianaComponent implements OnInit {
           console.log(objEvent);
           this.agendaService.updateAgendaJuliana(objEvent, id)
         }
+        else {
+          this.agendaService.removeAgendaJuliana(result.id);
+        }
+
         
         this.serviceAgenda();
-      } else {
-        this.addAgenda.emit("pacientes");
-      }
+      } 
     });
   }
   eventClickInfo(model) {

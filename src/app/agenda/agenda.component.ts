@@ -155,7 +155,7 @@ export class AgendaComponent implements OnInit {
           }
           this.agendaService.addAgenda(objEvent);
         }
-        if (result.status == "Alterar") {
+        else if (result.status == "Alterar") {
           let objEvent: any = {
             "end": result.end,
             "idPaciente": result.idPaciente,
@@ -165,10 +165,11 @@ export class AgendaComponent implements OnInit {
           console.log(objEvent);
           this.agendaService.updateAgenda(objEvent, id)
         }
+        else {
+          this.agendaService.removeAgenda(result.id);
+        }
 
         this.serviceAgenda();
-      } else {
-        this.addAgenda.emit("pacientes");
       }
     });
   }

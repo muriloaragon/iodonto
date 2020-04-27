@@ -26,7 +26,7 @@
   <input class="col-md-5 end" matInput name="end" type="time" [(ngModel)]="data.end">
 </mat-form-field>
 <div mat-dialog-actions *ngIf="data.name">
-  <button color="warn" style="width: 100%;" mat-button [mat-dialog-close]="data" cdkFocusInitial>Excluir Agendamento</button>
+  <button color="warn" style="width: 100%;" (click)="excluir('ex')" mat-button [mat-dialog-close]="data" cdkFocusInitial>Excluir Agendamento</button>
   <button color="primary" style="width: 100%;" mat-button [mat-dialog-close]="data" cdkFocusInitial>Alterar</button>
 </div>
 

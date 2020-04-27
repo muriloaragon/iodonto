@@ -20,9 +20,9 @@
           width="18px" style="padding: 0px 14px 0 0;">Agenda</button></p>
     <p><button mat-button class="button" (click)="nav('pacientes')"><img src="./assets/person_add-24px.svg" width="18px"
           style="padding: 0px 14px 0 0;">Pacientes</button></p>
-    <p><button mat-button class="button" (click)="nav('anotacoes')"><img src="./assets/attach_money-24px.svg"
+    <p *ngIf="userPerfil.name == 'Dra Ana Carolina Pasqualin '"><button mat-button class="button" (click)="nav('anotacoes')"><img src="./assets/attach_money-24px.svg"
           width="18px" style="padding: 0px 14px 0 0;">Faturamento</button></p>
-    <p><button mat-button class="button" (click)="nav('anotacoes')"><img src="./assets/notifications.svg" width="18px"
+    <p><button mat-button class="button" (click)="nav('faturamento')"><img src="./assets/notifications.svg" width="18px"
           style="padding: 0px 14px 0 0;">Lembretes</button></p>
     <p><button mat-button class="button" (click)="nav('convenios')"><img src="./assets/contact_phone-24px.svg"
           width="18px" style="padding: 0px 14px 0 0;">Convênios</button></p>
@@ -66,6 +66,7 @@
   <app-convenios *ngIf="routerNav==='convenios'"></app-convenios>
   <app-pacientes *ngIf="routerNav==='pacientes'"></app-pacientes>
   <app-anotacoes *ngIf="routerNav==='anotacoes'"></app-anotacoes>
+  <app-faturamento *ngIf="routerNav==='faturamento'"></app-faturamento>
 </mat-sidenav-container>
 <mat-menu #menu="matMenu">
   <app-notificacoes></app-notificacoes>

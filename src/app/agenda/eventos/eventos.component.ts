@@ -28,6 +28,9 @@ export class EventosComponent implements OnInit {
   }
   ngOnInit(): void {
   }
+  excluir(event: any){
+    this.data.status = "excluir";
+  }
   
 
 }

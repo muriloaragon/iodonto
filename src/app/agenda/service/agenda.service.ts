@@ -26,4 +26,10 @@ export class AgendaService {
   updateAgendaJuliana(paciente, id) {
     return this.firestore.doc('AgendaJuliana/' + id).update(paciente);
   }
+  removeAgenda(id) {
+    return this.firestore.doc('Agenda/' + id).delete();
+  }
+  removeAgendaJuliana(id) {
+    return this.firestore.doc('AgendaJuliana/' + id).delete();
+  }
 }
