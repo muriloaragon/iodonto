@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddConveniosComponent } from './add-convenios/add-convenios.component';
 import { ConveniosService } from './service/convenios.service';
+import { LoadingBarService } from '@ngx-loading-bar/core';
 export interface DialogData {
   nome: string;
   email: string;
@@ -22,12 +23,13 @@ export class ConveniosComponent implements OnInit {
   telefone: string;
   site: string;
   dataModal: any;
-  constructor(public dialog: MatDialog, private conveniosService: ConveniosService) { }
+  constructor(public dialog: MatDialog, private conveniosService: ConveniosService, private loadingBar: LoadingBarService) { }
 
   ngOnInit(): void {
     this.carregarGrid();
   }
   carregarGrid() {
+    this.loadingBar.start();
     this.conveniosService.getConvenios()
     .subscribe((data: any) => {
       this.getConvenios = data.map(e => {
@@ -41,6 +43,7 @@ export class ConveniosComponent implements OnInit {
         };
       })
     })
+    this.loadingBar.complete();
   }
 
   addEvent(): void {
@@ -50,10 +53,11 @@ export class ConveniosComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      if (result != undefined) {
+          if (result != undefined) {
         this.dataModal = result;
         this.conveniosService.addConvenios(this.dataModal);
         this.carregarGrid();
+        
       }
     });
   }

@@ -5,6 +5,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { PacientesService } from './service/pacientes.service';
 import { AgendaService } from '../agenda/service/agenda.service';
 import { takeWhile } from 'rxjs/operators';
+import { LoadingBarService } from '@ngx-loading-bar/core';
 
 export interface DialogData {
   nome: string;
@@ -27,7 +28,7 @@ export class PacientesComponent implements OnInit, OnDestroy {
   @ViewChild(AutocompleteComponent, { static: false }) child: any;
   ObjectoSel: any;
   private alive: boolean = true;
-  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar, private paciente: PacientesService, private agenda: AgendaService) { }
+  constructor(private fb: FormBuilder, private _snackBar: MatSnackBar, private paciente: PacientesService, private agenda: AgendaService, private loadingBar: LoadingBarService) { }
 
   pacienteForm = this.fb.group({
     nome: ['', Validators.required],
@@ -48,14 +49,17 @@ export class PacientesComponent implements OnInit, OnDestroy {
   }
 
   submitForm() {
+    this.loadingBar.start();
     if (this.ObjectoSel === undefined) {
       this.paciente.addPaciente(this.pacienteForm.value);
+      this.loadingBar.complete();
       this.openSnackBar("Paciente Adicionado com sucesso!", "Fechar")
     } else {
       this.paciente.updatePaciente(this.pacienteForm.value, this.ObjectoSel.id);
       this.openSnackBar("Paciente Salvo com sucesso!", "Fechar")
       this.salvarAgenda(this.ObjectoSel.id, this.pacienteForm.value);
       this.salvarAgendaJuliana(this.ObjectoSel.id, this.pacienteForm.value);
+      this.loadingBar.complete();
     }
     this.pacienteForm.reset();
   }

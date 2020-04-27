@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
     this.loadingBar.start();
     return new Promise((resolve, reject) => {
       this.afAuth.signInWithEmailAndPassword(this.email, this.senha).then((user) => {
-        localStorage['token'] = user.credential;
+        localStorage['email'] = user.user.email;
         this.router.navigate(['/home']);
         this.loadingBar.complete();
       })

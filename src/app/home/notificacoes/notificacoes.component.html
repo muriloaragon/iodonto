@@ -7,7 +7,10 @@
             </mat-list>
         </mat-tab>
         <mat-tab label="Aniversariantes">
-            <p>Lembretes</p>
+            <mat-list *ngFor="let lemb of arrayAniv | sortBy: 'asc':'date'">
+                <mat-list-item > <div style="width: 100%;">{{lemb.name | slice:0:30}}</div>  <div style="margin: auto;" class="data">{{lemb.dataNascimento | date:'dd/MM/yyyy'}}</div></mat-list-item>
+                <mat-divider></mat-divider>
+            </mat-list>
         </mat-tab>
     </mat-tab-group>
 </div>
